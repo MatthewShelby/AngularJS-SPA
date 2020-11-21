@@ -126,7 +126,6 @@ app.controller("detailsController", function (
     ShareData,
     $route,
     $sce,
-    $cookieStore,
     $localStorage,
     $anchorScroll,
     $window
