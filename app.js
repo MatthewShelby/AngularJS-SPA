@@ -1,5 +1,5 @@
 
-var app = angular.module("OrjApp", ['ngRoute', 'ngCookies', 'ngStorage']);
+var app = angular.module("OrjApp", ['ngRoute',  'ngStorage']);
 
 app.factory('ShareData', function () {
     return {
