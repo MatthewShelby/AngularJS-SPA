@@ -7,10 +7,9 @@ app.factory('ShareData', function () {
     }
 });
 
-app.config(["$routeProvider", function ($routeProvider) {
+app.config(["$routeProvider", function ($routeProvider, $window) {
     //$routeProvider.when("/", {
     $routeProvider.when("/", {
-        template: " Nothing Yet!",
         controller: "mainController"
     });
     $routeProvider.when("/List", {
@@ -21,6 +20,16 @@ app.config(["$routeProvider", function ($routeProvider) {
         templateUrl: "details.html",
         controller: "detailsController"
     });
+
+
+    //$routeProvider.
+    //    when('/', { templateUrl: 'pages/' + ** params.siteType ** + '/locationList.html', controller: Location }).
+    //    when('/locationDetail/:projectId', {
+    //        templateUrl: function (params) { return 'pages/' + ** params.siteType ** + '/locationDetail.html'; },
+    //        controller: Location
+    //    }).
+    //    otherwise({ redirectTo: '/' });
+
 }]);
 
 
@@ -73,6 +82,9 @@ app.controller("listController", function (
     $window,
     $localStorage
 ) {
+    changeTemplate();
+
+
 
     console.log('listController Start. cat: ' + ShareData.cat + ' search: ' + ShareData.search + ' comp: ' + ShareData.compName);
 
@@ -93,12 +105,29 @@ app.controller("listController", function (
             $localStorage.list = $scope.jobs;
             $localStorage.isNewSearch = false;
             console.log('$scope.jobs[0].title: ' + $scope.jobs[0].title);
+            $location.hash('res');
+
         });
     } else {
         $scope.jobs = $localStorage.list;
     }
 
 
+
+    function changeTemplate() {
+
+        var screenWidth = $window.innerWidth;
+        console.log('changeTemplate   screenWidth: ' + screenWidth);
+
+        if (screenWidth < 768) {
+            $scope.Records = 'list-mobile.html';
+            console.log('$scope.templateUrl: ' + $scope.Records);
+        } else if (screenWidth >= 768) {
+            $scope.Records = 'list-desktop.html';
+            console.log('$scope.templateUrl: ' + $scope.Records);
+
+        }
+    }
 
 
     $scope.goDetails = function (id) {
@@ -138,6 +167,8 @@ app.controller("detailsController", function (
         $localStorage.job = ShareData.job;
     }
 
+    changeTemplate();
+
     $scope.htmlBind = $sce.trustAsHtml($scope.job.description);
 
 
@@ -149,7 +180,24 @@ app.controller("detailsController", function (
         $location.hash('');
         $location.path("/");
     }
+    $scope.backToList = function (id) {
+        $location.path("/List");
 
+    }
+
+
+    function changeTemplate() {
+
+        var screenWidth = $window.innerWidth;
+        console.log('changeTemplate   screenWidth: ' + screenWidth);
+
+        if (screenWidth < 768) {
+            $scope.detailsContent = 'details-mobile.html';
+        } else if (screenWidth >= 768) {
+            $scope.detailsContent = 'details-desktop.html';
+
+        }
+    }
 });
 
 

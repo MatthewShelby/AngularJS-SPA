@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -22,7 +22,6 @@
     <div ng-app="OrjApp">
 
         <br />
-
         <div class="card">
             <div class="card-header foreign-supplier-title clearfix " ng-click="showDetails = ! showDetails"
                  style="cursor:pointer">
@@ -102,24 +101,105 @@
 
 
 
-        <span id="res"></span>
-        <br />
 
-        <div class="card">
-            <div class="card-header">
-                <h3>&ensp;Results:</h3>
-            </div>
-            <div class="card-body" ng-view>
 
-            </div>
+        <div ng-view>
 
         </div>
 
 
 
 
+
     </div>
 
+
+
+
+
+
+    <style>
+
+         /*Extra small devices (portrait phones, less than 576px)*/
+        /*@media (max-width: 575.98px) {
+            body {
+                background-color: forestgreen;
+            }
+        }*/
+
+         /*Small devices (landscape phones, 576px and up)*/
+        /*@media (min-width: 576px) and (max-width: 767.98px) {
+            body {
+                background-color: greenyellow;
+            }
+        }*/
+
+         /*Medium devices (tablets, 768px and up)*/
+        /*@media (min-width: 768px) and (max-width: 991.98px) {
+            body {
+                background-color: pink;
+            }
+        }*/
+
+         /*Large devices (desktops, 992px and up)*/
+        /*@media (min-width: 992px) and (max-width: 1199.98px) {
+            body {
+                background-color: yellow;
+            }
+        }*/
+
+         /*Extra large devices (large desktops, 1200px and up)*/
+        /*@media (min-width: 1200px) {
+            body {
+                background-color: white;
+            }
+        }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /* Extra small devices (portrait phones, less than 576px)*/
+
+        /*@media (max-width: 575.98px) {
+            body {
+                background-color: red;
+            }
+        }*/
+
+        /*Small devices (landscape phones, less than 768px)*/
+        /*@media (max-width: 767.98px) and (min-width:575.99px) {
+            body {
+                background-color: greenyellow;
+            }
+        }*/
+
+        /*Medium devices (tablets, less than 992px)*/
+        /*@media (max-width: 991.98px) and (min-width:767.99px) {
+            body {
+                background-color: blue;
+            }
+        }*/
+
+        /*Large devices (desktops, less than 1200px)*/
+        /*@media (max-width: 1199.98px) and (min-width:991.99px) {
+            body {
+                background-color: yellow;
+            }
+        }*/
+
+        /*Extra large devices (large desktops)*/
+        /*No media query since the extra-large breakpoint has no upper bound on its width*/
+    </style>
 
 
 </body>

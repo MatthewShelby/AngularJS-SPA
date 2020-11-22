@@ -1,0 +1,80 @@
+<!--<span id="res"></span>
+<br />
+
+<div class="card">
+    <div class="card-header">
+        <h3>&ensp;Results Mobile ---------:</h3>
+    </div>-->
+
+
+
+<div class="table table-bordered">
+    <div ng-repeat="j in jobs">
+        <div class="card" style="margin:5px; border-color:black ;">
+            <div class="card-header table-alert" style="color:darkslategrey;font-size:80%;font-weight:bolder">{{j.title}}</div>
+            <div class="card-body" style="padding: 2px; ">
+                <dl class="row" style="margin:2%;">
+
+                    <div class="col-md-12 "style="padding-left:2px;">
+                        <dt class="col-md-3">Company Name: </dt>
+                        <dd class="col-md-9">
+                            <h4>{{j.company_name}}</h4>
+                        </dd>
+
+                        <dt class="col-md-3">Category : </dt>
+                        <dd class="col-md-9">
+                            <h4>{{j.category}}</h4>
+                        </dd>
+
+                        <dt class="col-md-3">Job type : </dt>
+                        <dd class="col-md-9">
+                            <h4>{{j.job_type}}</h4>
+                        </dd>
+
+
+                        <dt class="col-md-3">Candidate location : </dt>
+                        <dd class="col-md-9">
+                            <h4>{{j.candidate_required_location}}</h4>
+                        </dd>
+                        <dt class="col-md-3">Salary : </dt>
+                        <dd class="col-md-9">
+                            <h4>{{j.salary}}</h4>
+                        </dd>
+
+                        <dd class="col-md-12">
+                            <br />
+                            <span ng-click="goDetails(j.id)" class="btn btn-outline-primary btn-block">Go to details</span>
+                        </dd>
+                    </div>
+
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!--</div>-->
+<style>
+    #headTr {
+        background-color: #bfc7c1;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    dt {
+        color: lightsteelblue;
+        font-size: 70%
+    }
+
+    dd h4 {
+        font-size: 80%
+    }
+</style>
