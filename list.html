@@ -2,34 +2,27 @@
 
 
 
+<span id="res"></span>
+<br />
 
-<table class="table table-bordered">
-    <thead>
-        <tr id="headTr">
-            <th>Title</th>
-            <th>Company name</th>
-            <th>Category</th>
-            <th>Job Type</th>
-            <!--<th>publish date</th>-->
-            <th></th>
-        </tr>
-    </thead>
-    <tbody id="tbd">
-        <tr ng-repeat="j in jobs">
-            <td>{{j.title}}</td>
-            <td>{{j.company_name}}</td>
-            <td>{{j.category}}</td>
-            <td>{{j.job_type}}</td>
-            <!--<td>{{j.publication_date}}</td>-->
-            <td>
-                <input type="button" pointer name="name" value="Details"
-                       ng-click="goDetails(j.id)" style="cursor:pointer;color:cornflowerblue;font-weight:bold" />
-            </td>
+<div class="card">
+    <div class="card-header">
+        <h3>&ensp;Results:</h3>
+    </div>
 
-        </tr>
-    </tbody>
-</table>
 
+
+
+    <div ng-include="Records">
+
+    </div>
+
+
+
+
+
+
+</div>
 <style>
     #headTr {
         background-color: #bfc7c1;
@@ -38,5 +31,8 @@
     tr:nth-child(even) {
         background-color: #f2f2f2;
     }
-</style>
 
+    dt {
+        color: lightslategray
+    }
+</style>

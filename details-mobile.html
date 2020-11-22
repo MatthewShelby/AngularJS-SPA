@@ -1,0 +1,80 @@
+
+    <h4 style="margin:2%;  background-color:lightgray;padding:20px;border-top:solid green 4px;text-align:center">{{job.title}}</h4>
+    <br />
+
+    <dl class="row" style="margin:2%;">
+
+        <div class="col-md-9 row">
+            <dt class="col-md-3">Company Name: </dt>
+            <dd class="col-md-9">
+                <h4>{{job.company_name}}</h4>
+            </dd>
+
+            <dt class="col-md-3">Category : </dt>
+            <dd class="col-md-9">
+                <h4>{{job.category}}</h4>
+            </dd>
+
+            <dt class="col-md-3">Job type : </dt>
+            <dd class="col-md-9">
+                <h4>{{job.job_type}}</h4>
+            </dd>
+
+            <dt class="col-md-3">Publication date : </dt>
+            <dd class="col-md-9">
+                <h4>{{job.publication_date}}</h4>
+            </dd>
+            <dt class="col-md-3">Candidate location : </dt>
+            <dd class="col-md-9">
+                <h4>{{job.candidate_required_location}}</h4>
+            </dd>
+            <dt class="col-md-3">Salary : </dt>
+            <dd class="col-md-9">
+                <h4>{{job.salary}}</h4>
+            </dd>
+        </div>
+        <div class="col-md-3 d-flex align-items-center flex-column">
+            <content class="mt-auto p-2">
+                <a href="{{job.url}}" class="btn btn-info btn-block" target="_blank">Apply via remotive</a>
+            </content>
+        </div>
+
+
+        <dd class="col-md-12">
+
+        </dd>
+        <dd class="col-md-12">
+
+        </dd>
+        <dd class="col-md-12">
+
+        </dd>
+        <dd class="col-md-12">
+
+        </dd>
+
+        <dt class="col-md-3">Description : </dt>
+        <dd class="col-md-9" style="text-align: justify;">
+            <span ng-bind-html="htmlBind"></span>
+        </dd>
+
+    </dl>
+
+    <style>
+        #headTr {
+            background-color: #bfc7c1;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        dt {
+            color: lightsteelblue;
+            font-size: 70%
+        }
+
+        dd h4 {
+            font-size: 80%
+        }
+    </style>

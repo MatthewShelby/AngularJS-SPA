@@ -1,0 +1,28 @@
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr id="headTr">
+            <th>Title</th>
+            <th>Company name</th>
+            <th>Category</th>
+            <th>Job Type</th>
+            <th>publish date</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="tbd">
+        <tr ng-repeat="j in jobs">
+            <td>{{j.title}}</td>
+            <td>{{j.company_name}}</td>
+            <td>{{j.category}}</td>
+            <td>{{j.job_type}}</td>
+            <td>{{j.publication_date}}</td>
+            <td>
+                <input type="button" pointer name="name" value="Details"
+                       ng-click="goDetails(j.id)" style="cursor:pointer;color:cornflowerblue;font-weight:bold" />
+            </td>
+
+        </tr>
+    </tbody>
+</table>
