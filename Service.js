@@ -1,5 +1,5 @@
 
-app.service("OrjService", function ($http) {
+app.service("OrjService", function ($http, $sce,) {
 
 
     this.getJobsList = function (cat, search, compName) {
@@ -24,9 +24,22 @@ app.service("OrjService", function ($http) {
             query += "&company_name=" + compName;
         }
 
+        var trustedUrl = $sce.trustAsResourceUrl(query);
+
+
+        var RV = {};
+        $http.jsonp(trustedUrl, { jsonpCallbackParam: 'callback' })
+            .then(function (data) {
+                console.log(data.found);
+                RV = data;
+            });
+
+        /*
         console.log('call query: ' + query);
         var RV = $http.get(query);
         console.log('Service RV: ' + RV);
+        */
+
         return RV;
     };
 
@@ -41,9 +54,44 @@ app.service("OrjService", function ($http) {
     };
 
     this.getAllCategories = function () {
+
         console.log('call for: getAllCategories');
-        var RV = $http.get("https://remotive.io/api/remote-jobs/categories");
+
+
+        var RV = $http.get("https://remotive.io/api/remote-jobs/categories",);
         console.log('call done. RV: ' + RV);
+
+
+
+
+
+        //return $http({
+        //    method: 'GET',
+        //    url: 'https://remotive.io/api/remote-jobs/categories/?format=json&callback=?',
+        //    dataType: 'jsonp',
+            
+        //});
+    
+
+
+        //var RV = {};
+
+        //var url = "//remotive.io/api/remote-jobs/categories";
+        //var trust = $sce.trustAsResourceUrl(url);
+        //$http.get(url, {
+        //    params: {
+        //        format: 'jsonp', headers: {
+        //            'Content-Type': 'application/json; charset=utf-8'
+        //        }
+        //    }
+        //})
+        //    .then(function (data) {
+        //        console.log('data[0]: ' + data[0]);
+        //        RV = data;
+        //    });
+
+        //console.log('call done. RV: ' + RV);
+
         return RV;
     };
 
@@ -65,7 +113,7 @@ app.service("OrjService", function ($http) {
 
 
 
-//full_time
-//contract
-//internship
-//part_time
+app.config(function ($httpProvider) {
+    $httpProvider.defaults.useXDomain = true;
+    //delete $httpProvider.defaults.headers.common['X-Requested-With'];
+});
