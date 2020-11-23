@@ -47,8 +47,6 @@ app.controller("mainController", function (
     $localStorage
 ) {
     var catsOrigin = OrjService.getAllCategories();
-    console.log('JSON.stringify(catsOrigin): '+JSON.stringify(catsOrigin));
-    
     var allcats = {
         "id": 1000,
         "name": "All Categories",
@@ -57,7 +55,7 @@ app.controller("mainController", function (
     catsOrigin.then(function (res) {
         $scope.cats = [].concat(allcats, res.data.jobs);
     });
-    
+
     $scope.GO = function () {
         console.log('GO!');
 
