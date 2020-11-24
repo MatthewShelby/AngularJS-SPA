@@ -23,18 +23,12 @@
 
     <div id="homeBaner" ng-controller="mainController">
 
+        <div ng-include="banner">
 
-
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 832">
-            <image width="1200" height="832" xlink:href="Images/3.jpg">
-            </image>
-            <a ng-click="gotoElement('filter')" style="cursor:pointer">
-                <rect x="906" y="337" fill="#fff" opacity="0.3" width="190" height="75" />
-            </a>
-        </svg>
+        </div>
     </div>
-    <div  id="filter"class="container">
-        <span ></span>
+    <div id="filter" class="container">
+        <span></span>
         <br />
         <div class="card">
             <div class="card-header foreign-supplier-title clearfix " ng-click="showDetails = ! showDetails"

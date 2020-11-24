@@ -44,6 +44,7 @@ app.controller("mainController", function (
     ShareData,
     $route,
     $rootScope,
+    $window,
     $localStorage
 ) {
 
@@ -82,6 +83,19 @@ app.controller("mainController", function (
         OrjService.scrollTo(eID);
 
     };
+
+
+
+    var screenWidth = $window.innerWidth;
+    console.log('changeTemplate   screenWidth: ' + screenWidth);
+
+    if (screenWidth < 768) {
+        $scope.banner = 'banner-mobile.html';
+
+    } else if (screenWidth >= 768) {
+        $scope.banner = 'banner-desktop.html';
+
+    }
 });
 
 
@@ -106,7 +120,7 @@ app.controller("listController", function (
 ) {
     changeTemplate();
 
-
+    $scope.width = $window.innerWidth;
 
     console.log('listController Start. cat: ' + ShareData.cat + ' search: ' + ShareData.search + ' comp: ' + ShareData.compName);
 
@@ -123,7 +137,6 @@ app.controller("listController", function (
             } else {
                 $scope.jobs = jobs;
             }
-
             $localStorage.list = $scope.jobs;
             $localStorage.isNewSearch = false;
             console.log('$scope.jobs[0].title: ' + $scope.jobs[0].title);
