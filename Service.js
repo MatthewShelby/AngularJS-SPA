@@ -31,14 +31,6 @@ app.service("OrjService", function ($http) {
     };
 
 
-    this.getAllJobs = function () {
-        console.log('call for: getAllJobs');
-        //var RV = $http.get("https://remotive.io/api/remote-jobs?category=software-dev&limit=30");
-        //console.log('call getAll done. RV: ' + RV);
-        ////console.log('call getAll done. RV: ' + JSON.stringify(RV.data.jobs[0]));
-        //return RV;
-        return $http.get("https://remotive.io/api/remote-jobs?category=software-dev&limit=30");
-    };
 
     this.getAllCategories = function () {
         console.log('call for: getAllCategories');
@@ -47,18 +39,59 @@ app.service("OrjService", function ($http) {
         return RV;
     };
 
-    this.getByCats = function (cat, limit) {
-        console.log('call for: getByCats');
-        var query = "https://remotive.io/api/";
-        if (cat == undefined || cat == 'all' || cat == null || cat == '') {
-            query += "remote-jobs?limit=5";
-        } else {
-            query += "remote-jobs?category=" + cat + '&limit=' + limit;
+
+    this.scrollTo = function (eID) {
+
+        // This scrolling function 
+        // is from http://www.itnewb.com/tutorial/Creating-the-Smooth-Scroll-Effect-with-JavaScript
+
+        console.log('anchorSmoothScroll called');
+
+        var startY = currentYPosition();
+        var stopY = elmYPosition(eID);
+        var distance = stopY > startY ? stopY - startY : startY - stopY;
+        if (distance < 100) {
+            scrollTo(0, stopY); return;
         }
-        var RV = $http.get(query);
-        console.log('call query. RV: ' + RV);
-        return RV;
+        var speed = Math.round(distance / 300);
+        if (speed >= 20) speed = 20;
+        var step = Math.round(distance / 200);
+        var leapY = stopY > startY ? startY + step : startY - step;
+        var timer = 0;
+        if (stopY > startY) {
+            for (var i = startY; i < stopY; i += step) {
+                setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
+                leapY += step; if (leapY > stopY) leapY = stopY; timer++;
+            } return;
+        }
+        for (var i = startY; i > stopY; i -= step) {
+            setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
+            leapY -= step; if (leapY < stopY) leapY = stopY; timer++;
+        }
+
+        function currentYPosition() {
+            // Firefox, Chrome, Opera, Safari
+            if (self.pageYOffset) return self.pageYOffset;
+            // Internet Explorer 6 - standards mode
+            if (document.documentElement && document.documentElement.scrollTop)
+                return document.documentElement.scrollTop;
+            // Internet Explorer 6, 7 and 8
+            if (document.body.scrollTop) return document.body.scrollTop;
+            return 0;
+        }
+
+        function elmYPosition(eID) {
+            var elm = document.getElementById(eID);
+            var y = elm.offsetTop;
+            var node = elm;
+            while (node.offsetParent && node.offsetParent != document.body) {
+                node = node.offsetParent;
+                y += node.offsetTop;
+            } return y;
+        }
+
     };
+
 
 
 });

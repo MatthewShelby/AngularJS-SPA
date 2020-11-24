@@ -19,10 +19,22 @@
 
 
 
-<body class="container">
+<body ng-app="OrjApp">
 
-    <div ng-app="OrjApp">
+    <div id="homeBaner" ng-controller="mainController">
 
+
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 832">
+            <image width="1200" height="832" xlink:href="Images/3.jpg">
+            </image>
+            <a ng-click="gotoElement('filter')" style="cursor:pointer">
+                <rect x="906" y="337" fill="#fff" opacity="0.3" width="190" height="75" />
+            </a>
+        </svg>
+    </div>
+    <div  id="filter"class="container">
+        <span ></span>
         <br />
         <div class="card">
             <div class="card-header foreign-supplier-title clearfix " ng-click="showDetails = ! showDetails"
@@ -115,42 +127,68 @@
 
     </div>
 
+    <div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <p> </p>
+    </div>
+    <div ng-include="AboutUs">
 
+    </div>
 
 
 
 
     <style>
 
-         /*Extra small devices (portrait phones, less than 576px)*/
+        /*Extra small devices (portrait phones, less than 576px)*/
         /*@media (max-width: 575.98px) {
             body {
                 background-color: forestgreen;
             }
         }*/
 
-         /*Small devices (landscape phones, 576px and up)*/
+        /*Small devices (landscape phones, 576px and up)*/
         /*@media (min-width: 576px) and (max-width: 767.98px) {
             body {
                 background-color: greenyellow;
             }
         }*/
 
-         /*Medium devices (tablets, 768px and up)*/
+        /*Medium devices (tablets, 768px and up)*/
         /*@media (min-width: 768px) and (max-width: 991.98px) {
             body {
                 background-color: pink;
             }
         }*/
 
-         /*Large devices (desktops, 992px and up)*/
+        /*Large devices (desktops, 992px and up)*/
         /*@media (min-width: 992px) and (max-width: 1199.98px) {
             body {
                 background-color: yellow;
             }
         }*/
 
-         /*Extra large devices (large desktops, 1200px and up)*/
+        /*Extra large devices (large desktops, 1200px and up)*/
         /*@media (min-width: 1200px) {
             body {
                 background-color: white;
