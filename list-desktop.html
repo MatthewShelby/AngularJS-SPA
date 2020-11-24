@@ -1,31 +1,47 @@
+<span id="res"></span>
+<br />
 
-<div style="       
-        display: block;
-        overflow: auto;">
-    <table class="table table-bordered" >
-        <thead>
-            <tr id="headTr">
-                <th>Title</th>
-                <th>Company name</th>
-                <th>Category</th>
-                <th>Job Type</th>
-                <th>publish date</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody id="tbd">
-            <tr ng-repeat="j in jobs">
-                <td>{{j.title}}</td>
-                <td>{{j.company_name}}</td>
-                <td>{{j.category}}</td>
-                <td>{{j.job_type}}</td>
-                <td>{{j.publication_date}}</td>
-                <td>
-                    <input type="button" pointer name="name" value="Details"
-                           ng-click="goDetails(j.id)" style="cursor:pointer;color:cornflowerblue;font-weight:bold" />
-                </td>
+<div class="card ">
+    <div class="card-header">
+        <h3>&ensp;Results:</h3>
+    </div>
 
-            </tr>
-        </tbody>
-    </table>
+
+
+
+
+    <div style="        display: block;
+        overflow: auto;
+        width: 100% !important;
+">
+
+        <table class="table table-bordered" style="width: 100% !important;">
+            <thead style="max-width:100%">
+                <tr id="headTr" style="max-width:100%" class="col-md-12">
+                    <th>Title</th>
+                    <th>Company name</th>
+                    <th>Category</th>
+                    <th>Job Type</th>
+                    <th>publish date</th>
+                    <th >See details</th>
+                </tr>
+            </thead>
+
+            <tbody id="tbd">
+                <tr ng-repeat="j in jobs">
+                    <td>{{j.title}}</td>
+                    <td>{{j.company_name}}</td>
+                    <td>{{j.category}}</td>
+                    <td>{{j.job_type}}</td>
+                    <td>{{j.publication_date}}</td>
+                    <td>
+                        <input type="button" pointer name="name" value="Details"
+                               ng-click="goDetails(j.id)" style="cursor:pointer;color:cornflowerblue;font-weight:bold" />
+                    </td>
+
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
 </div>
