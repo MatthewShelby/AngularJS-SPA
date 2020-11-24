@@ -46,6 +46,8 @@ app.controller("mainController", function (
     $rootScope,
     $localStorage
 ) {
+
+
     var catsOrigin = OrjService.getAllCategories();
     var allcats = {
         "id": 1000,
@@ -67,7 +69,27 @@ app.controller("mainController", function (
         $location.path("/List");
         $route.reload();
     };
+    //$scope.start = function () {
+    //    $location.hash('filter');
+    //    $anchorScroll();
+    //};
+    $scope.gotoElement = function (eID) {
+        // set the location.hash to the id of
+        // the element you wish to scroll to.
+        $location.hash(eID);
+
+        // call $anchorScroll()
+        OrjService.scrollTo(eID);
+
+    };
 });
+
+
+
+
+
+
+
 
 
 
@@ -106,6 +128,7 @@ app.controller("listController", function (
             $localStorage.isNewSearch = false;
             console.log('$scope.jobs[0].title: ' + $scope.jobs[0].title);
             $location.hash('res');
+            OrjService.scrollTo('res');
 
         });
     } else {
@@ -137,7 +160,7 @@ app.controller("listController", function (
         //$window.alert('lst Ctrl - ShareData.job.title :' + ShareData.job.title);
         $location.path("/Details");
 
-        // $route.reload();
+        //$route.reload();
     }
 
 
@@ -172,15 +195,19 @@ app.controller("detailsController", function (
     $scope.htmlBind = $sce.trustAsHtml($scope.job.description);
 
 
-    $location.hash('res');
-    $anchorScroll();
+    $location.hash('resDetails');
+    OrjService.scrollTo('resDetails');
 
     $scope.goToHome = function (id) {
         $localStorage.list = undefined;
         $location.hash('');
         $location.path("/");
+
     }
     $scope.backToList = function (id) {
+        $location.hash('');
+        $location.hash('res');
+
         $location.path("/List");
 
     }
@@ -189,7 +216,7 @@ app.controller("detailsController", function (
     function changeTemplate() {
 
         var screenWidth = $window.innerWidth;
-        console.log('changeTemplate   screenWidth: ' + screenWidth);
+        console.log('changeTemplate    screenWidth: ' + screenWidth);
 
         if (screenWidth < 768) {
             $scope.detailsContent = 'details-mobile.html';
