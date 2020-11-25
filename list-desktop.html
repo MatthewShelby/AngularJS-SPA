@@ -18,12 +18,11 @@
         <table class="table table-bordered" style="width: 100% !important;">
             <thead style="max-width:100%">
                 <tr id="headTr" style="max-width:100%" class="col-md-12">
-                    <th>Title</th>
+                    <th style="width:">Title</th>
                     <th>Company name</th>
                     <th>Category</th>
-                    <th>Job Type</th>
-                    <th>publish date</th>
-                    <th >See details</th>
+                    <th>Type</th>
+                    <th >Details</th>
                 </tr>
             </thead>
 
@@ -33,7 +32,6 @@
                     <td>{{j.company_name}}</td>
                     <td>{{j.category}}</td>
                     <td>{{j.job_type}}</td>
-                    <td>{{j.publication_date}}</td>
                     <td>
                         <input type="button" pointer name="name" value="Details"
                                ng-click="goDetails(j.id)" style="cursor:pointer;color:cornflowerblue;font-weight:bold" />
