@@ -6,26 +6,16 @@
         <h3>&ensp;Results:</h3>
     </div>
 
+    <div>
 
-
-
-
-    <div style="        display: block;
-        overflow: auto;
-        width: 100% !important;
-">
-
-        <table class="table table-bordered" style="width: 100% !important;">
-            <thead style="max-width:100%">
-                <tr id="headTr" style="max-width:100%" class="col-md-12">
+        <table class="table table-bordered">
+            <thead>
+                <tr id="headTr">
                     <th style="width:">Title</th>
-                    <th>Company name</th>
+                    <th>Company</th>
                     <th>Category</th>
-
                     <th>Type</th>
-                    <th >Details</th>
-
-
+                    <th>Details</th>
 
                 </tr>
             </thead>
@@ -38,7 +28,8 @@
                     <td>{{j.job_type}}</td>
                     <td>
                         <input type="button" pointer name="name" value="Details"
-                               ng-click="goDetails(j.id)" style="cursor:pointer;color:cornflowerblue;font-weight:bold" />
+                               ng-click="goDetails(j.id)" class="btn btn-outline-secondary" />
+                        <!--ng-click="goDetails(j.id)" style="cursor:pointer;color:cornflowerblue;font-weight:bold" />-->
                     </td>
 
                 </tr>
